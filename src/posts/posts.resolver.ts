@@ -6,19 +6,19 @@ import { UpdatePostInput } from './dto/update-post.input';
 
 @Resolver(() => Post)
 export class PostsResolver {
-  constructor(private readonly postsService: PostsService) {}
+  constructor(private readonly postsService: PostsService) { }
 
   @Mutation(() => Post)
   createPost(@Args('createPostInput') createPostInput: CreatePostInput) {
     return this.postsService.create(createPostInput);
   }
 
-  @Query(() => [Post], { name: 'posts' })
+  @Query(() => [Post], { name: 'findAll' })
   findAll() {
     return this.postsService.findAll();
   }
 
-  @Query(() => Post, { name: 'post' })
+  @Query(() => Post, { name: 'findOne' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.postsService.findOne(id);
   }
