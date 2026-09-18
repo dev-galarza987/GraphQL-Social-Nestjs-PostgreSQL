@@ -17,34 +17,8 @@ export class PostsService {
     return 'This action adds a new post';
   }
 
-  findAll(): Post[] {
-    return [
-      {
-        id: 1,
-        title: "NestJS 12",
-        description: "Descripción sobre NestJS 12"
-      },
-      {
-        id: 2,
-        title: "ASP.NET Core 8",
-        description: "Descripción sobre ASP.NET Core 8."
-      },
-      {
-        id: 3,
-        title: "Spring Boot 7",
-        description: "Descripción sobre Spring Boot 7"
-      },
-      {
-        id: 4,
-        title: "FastAPI",
-        description: "Descripción sobre FastAPI"
-      },
-      {
-        id: 5,
-        title: "Axum",
-        description: "Descripción sobre Axum."
-      }
-    ];
+  async findAll(): Promise<Post[]> {
+    return await this.postsRepository.find();
   }
 
   findOne(id: number) {
