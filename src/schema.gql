@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Entidad GraphQL de publicaciones."""
+type Post {
+  """Identificador unico de publicación."""
+  id: Int!
+
+  """Título de la publicación."""
+  title: String!
+
+  """Description opcional de la publicación."""
+  description: String!
+}
+
+type Query {
+  findAll: [Post!]!
+  findOne(id: Int!): Post!
+}
+
+type Mutation {
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: Int!): Post!
+}
+
+input CreatePostInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdatePostInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
